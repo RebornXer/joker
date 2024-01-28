@@ -8353,9 +8353,6 @@ end)
                                 end
                             end
                         end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
                             else
                             if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
                                 if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
@@ -8380,12 +8377,11 @@ end)
                                     end
                                 else
                                     MagnetDought = false
-topos(CFrame.new(-1820.0634765625, 210.74781799316406, -12297.49609375))
+                                      topos(CFrame.new(-1820.0634765625, 210.74781799316406, -12297.49609375))
                                     end
                                         end
                                     end                       
-                                end             
-                       else
+                                                                 else
          
                             if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency ==  then
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)

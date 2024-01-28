@@ -6155,7 +6155,7 @@ topos(v.Part.CFrame)
 end)
 end
 end) 
-
+   Main:AddSeperatorLeft("MysticIsland")
     local ig = Main:AddLabelLeft("")
     
              function iop()
@@ -7098,7 +7098,15 @@ spawn(function()
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
-                        end
+                         if _G.SkillF then
+                                local args = {
+                                    [1] = PosMonBone2.Position
+                                }
+                                game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true,"F",false,game)
+                                game:GetService("VirtualInputManager"):SendKeyEvent(false,"F",false,game)
+                            end
+end
                     end
                 end)
             end
@@ -7393,7 +7401,15 @@ spawn(function()
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
-                        end
+                         if _G.SkillF then
+                                local args = {
+                                    [1] = PosMonBone2.Position
+                                }
+                                game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true,"F",false,game)
+                                game:GetService("VirtualInputManager"):SendKeyEvent(false,"F",false,game)
+                            end
+end
                     end
                 end)
             end
@@ -7626,6 +7642,10 @@ end)
     
     Main:AddToggleLeft("Skill V",true,function(value)
         _G.SkillV = value
+    end)
+    
+Main:AddToggleLeft("Skill F",true,function(value)
+_G.SkillF = value
     end)
     
     Main:AddSeperatorLeft("Boss")
@@ -8360,31 +8380,14 @@ end)
                                     end
                                 else
                                     MagnetDought = false
-                                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
-                                        topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(0,40,0)) 
-                                    else
-                                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard") then
-                                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard").HumanoidRootPart.CFrame * CFrame.new(0,40,0)) 
-                                        else
-                                            if game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff") then
-                                                topos(game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                                            else
-                                                if game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker") then
-                                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                                                end
-                                        end
+topos(CFrame.new(-1820.0634765625, 210.74781799316406, -12297.49609375))
+                                    end
                                         end
                                     end                       
-                                end
-                            else
-                                if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
-                                    topos(game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
-                                else
-                                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
-                                        topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
-                                    else
-                                 
-                            if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
+                                end             
+                       else
+         
+                            if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency ==  then
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                                end
                                end

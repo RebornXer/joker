@@ -8338,6 +8338,9 @@ spawn(function()
 		while wait() do
 			if _G.AutoDoughtBoss then
 				pcall(function()
+if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or not game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+       					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
+end
 					if game.ReplicatedStorage:FindFirstChild("Cake Prince") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then   
 						if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do 
@@ -8379,8 +8382,7 @@ spawn(function()
 							MagnetDought = false
 							topos(CFrame.new(-1820.0634765625, 210.74781799316406, -12297.49609375))
 						end
-					elseif game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
-       					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
+					
 end
                                          
                                

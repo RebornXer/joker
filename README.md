@@ -1256,7 +1256,7 @@ local Space = Instance.new("TextLabel")
 			True.BackgroundTransparency = 1.000
 			True.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			True.Position = UDim2.new(0, 0, 0, 0)
-			True.Size = UDim2.new(0, 18, 0, 16)
+			True.Size = UDim2.new(0, 16, 0, 16)
 			True.Font = Enum.Font.SourceSans
 			True.Text = ""
 			True.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1269,7 +1269,7 @@ local Space = Instance.new("TextLabel")
 				if toggled == false then
 					toggled = true
 					True.Text = "✔"
-					Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
+					Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
 					TweenService:Create(
 						Circle,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1278,7 +1278,7 @@ local Space = Instance.new("TextLabel")
 				else
 					toggled = false
 					True.Text = ""
-					Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
+					Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
 					TweenService:Create(
 						Circle,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1292,7 +1292,7 @@ local Space = Instance.new("TextLabel")
 			if config == true then
 				toggled = true
 				True.Text = "✔"
-				Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
+				Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
 				TweenService:Create(
 					Circle,
 					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1374,7 +1374,7 @@ Truea.Name = "Truea"
 			Truea.BackgroundTransparency = 1.000
 			Truea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Truea.Position = UDim2.new(0, 0, 0, 0)
-			Truea.Size = UDim2.new(0, 18, 0, 16)
+			Truea.Size = UDim2.new(0, 16, 0, 16)
 			Truea.Font = Enum.Font.SourceSans
 			Truea.Text = ""
 			Truea.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -1387,7 +1387,7 @@ Truea.Name = "Truea"
 				if toggledd == false then
 					toggledd = true
 					Truea.Text = "✔"
-					Circlee:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
+					Circlee:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
 					TweenService:Create(
 						Circlee,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1409,7 +1409,7 @@ Truea.Name = "Truea"
 			if config == true then
 				toggledd = true
 				Truea.Text = "✔"
-				Circlee:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
+				Circlee:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
 				TweenService:Create(
 					Circlee,
 					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -6155,7 +6155,7 @@ topos(v.Part.CFrame)
 end)
 end
 end) 
-Main:AddSeperatorLeft("Mystic Island")
+
     local ig = Main:AddLabelLeft("")
     
              function iop()
@@ -8311,6 +8311,92 @@ end)
     Main:AddToggleLeft("Auto Katakuri",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
+    end)
+    
+   spawn(function()
+        while wait() do
+            if _G.AutoDoughtBoss then
+                pcall(function()
+                      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+       					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
+                    elseif game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Cake Prince" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
+                            else
+                            if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
+                                if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
+                                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                        if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker" then
+                                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                                repeat task.wait()
+                                                    AutoHaki()
+                                                    EquipWeapon(_G.SelectWeapon)
+                                                    v.HumanoidRootPart.CanCollide = false
+                                                    v.Humanoid.WalkSpeed = 0
+                                                    v.Head.CanCollide = false 
+                                                   
+                                                    MagnetDought = true
+                                                    PosMonDoughtOpenDoor = v.HumanoidRootPart.CFrame
+                                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                    game:GetService("VirtualUser"):CaptureController()
+                                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                                until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]")
+                                            end
+                                        end
+                                    end
+                                else
+                                    MagnetDought = false
+                                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter") then
+                                        topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter").HumanoidRootPart.CFrame * CFrame.new(0,40,0)) 
+                                    else
+                                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard") then
+                                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Guard").HumanoidRootPart.CFrame * CFrame.new(0,40,0)) 
+                                        else
+                                            if game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff") then
+                                                topos(game:GetService("ReplicatedStorage"):FindFirstChild("Baking Staff").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                            else
+                                                if game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker") then
+                                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Head Baker").HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                end
+                                        end
+                                        end
+                                    end                       
+                                end
+                            else
+                                if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+                                    topos(game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
+                                else
+                                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
+                                        topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
+                                    
+                                 
+                            
+                               end
+                               end
+                            end
+                            
+       					end
+                        end
+                    end
+                end)
+            end
+        end
     end)
     
 

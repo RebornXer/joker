@@ -8317,9 +8317,8 @@ end)
         while wait() do
             if _G.AutoDoughtBoss then
                 pcall(function()
-                      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 and game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
-       					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
-                    elseif game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+                     
+                  if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == "Cake Prince" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then

@@ -8376,7 +8376,7 @@ end
                                         topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
                                    
                                  
-                                                           end
+                                                           
                                end
                             end
                             

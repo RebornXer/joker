@@ -8381,7 +8381,7 @@ end)
                                     end
                                         end
                                     end                       
-                                                                 else
+                                                               
          
                             if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency ==  then
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)

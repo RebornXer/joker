@@ -16670,6 +16670,7 @@ end
                             if not game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") and not game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") and not game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") and not game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
                                  topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
 end
+end
 end)
 end
 end)

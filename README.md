@@ -16658,22 +16658,6 @@ end)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
     end)
-    CheckMonKatakuri = true
-spawn(function()
-  while wait() do 
-    pcall(function() 
-       if CheckMonKatakuri then
-          if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
-
-       elseif game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
-                            if not game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") and not game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") and not game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") and not game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
-                                 topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
-end
-end
-end)
-end
-end)
 spawn(function()
     while wait() do
         if _G.AutoDoughtBoss then

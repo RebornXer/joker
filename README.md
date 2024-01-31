@@ -12676,6 +12676,8 @@ topos(game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper").Humanoi
                                
                             end
                         end
+                    else
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
                   
                 end
             end
@@ -12782,88 +12784,7 @@ topos(game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper").Humanoi
     Main:AddToggleRight("Auto Godhuman",_G.GodHuman,function(a)
     _G.GodHuman = a
     end)
-    
-    spawn(function()
-        while task.wait() do
-            if _G.GodHuman then
-                pcall(function()
-                    if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Black Leg") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Death Step") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Death Step") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Fishman Karate") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Sharkman Karate") or game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Claw") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Dragon Talon") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon Talon") or game.Players.LocalPlayer.Character:FindFirstChild("Godhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Godhuman") then
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman",true) == 1 then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character:FindFirstChild("Superhuman").Level.Value >= 400 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-                            end
-                        else
-                            game.StarterGui:SetCore("SendNotification", {
-                                Title = "Notification", 
-                                Text = "Not Have Superhuman" ,
-                                Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                Duration = 2.5
-                            })
-                        end
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep",true) == 1 then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step") and game.Players.LocalPlayer.Backpack:FindFirstChild("Death Step").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Death Step") and game.Players.LocalPlayer.Character:FindFirstChild("Death Step").Level.Value >= 400 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-                            end
-                        else
-                            game.StarterGui:SetCore("SendNotification", {
-                                Title = "Notification", 
-                                Text = "Not Have Death Step" ,
-                                Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                Duration = 2.5
-                            })
-                        end
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true) == 1 then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Sharkman Karate").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate").Level.Value >= 400 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-                            end
-                        else
-                            game.StarterGui:SetCore("SendNotification", {
-                                Title = "Notification", 
-                                Text = "Not Have SharkMan Karate" ,
-                                Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                Duration = 2.5
-                            })
-                        end
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw",true) == 1 then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electric Claw").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Electric Claw").Level.Value >= 400 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-                            end
-                        else
-                            game.StarterGui:SetCore("SendNotification", {
-                                Title = "Notification", 
-                                Text = "Not Have Electric Claw" ,
-                                Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                Duration = 2.5
-                            })
-                        end
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon",true) == 1 then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Talon").Level.Value >= 400 or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Talon").Level.Value >= 400 then
-                                if string.find(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman",true), "Bring") then
-                                    game.StarterGui:SetCore("SendNotification", {
-                                        Title = "Notification", 
-                                        Text = "Not Have Enough Material" ,
-                                        Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                        Duration = 2.5
-                                    })
-                                else
-                                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-                                end
-                            end
-                        else
-                            game.StarterGui:SetCore("SendNotification", {
-                                Title = "Notification", 
-                                Text = "Not Have Dragon Talon" ,
-                                Icon = "http://www.roblox.com/asset/?id=9956697825",
-                                Duration = 2.5
-                            })
-                        end
-                    else
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-                    end
-                end)
-            end
-        end
-    end)
+
     
         Main:AddLineRight("")
 

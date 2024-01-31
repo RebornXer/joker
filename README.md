@@ -8335,10 +8335,10 @@ end)
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
                             else
-                            if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
+                    if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
                                 if game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") or game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") or game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
                                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                         if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker" then
@@ -8361,18 +8361,10 @@ end)
                                     end
                                 else
                                     topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
-                                           end     
-                                        end
-                                        end
-                                    end                       
-                                end
                             else
                                if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                               
-                              
-                            end
-end
                             
        					end
                         end

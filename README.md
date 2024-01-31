@@ -8361,7 +8361,7 @@ end)
                                     end
                                 else
                                     topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
-                                           end     
+                                              
                                         end
                                         end
                                     end                       
@@ -8378,7 +8378,7 @@ end)
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                                end
                                end
-                           
+                            end
                             
        					end
                         end

@@ -9251,6 +9251,7 @@ AutoHaki()
                                     repeat wait()
                                        AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
+toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                        
@@ -9259,7 +9260,7 @@ AutoHaki()
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid:ChangeState(11)
-                                        toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                                      
                                     until _G.Auto_Cursed_Dual_Katana == false or Auto_Quest_Tushita_3 == false or game:GetService("Workspace").Map:FindFirstChild("HeavenlyDimension")
                                 end
                             end
@@ -9305,8 +9306,6 @@ AutoHaki()
                             toTarget(game:GetService("Workspace").Map.HeavenlyDimension.Exit.CFrame)
                         end
                     until _G.Auto_Cursed_Dual_Katana == false or Auto_Quest_Tushita_3 == false or GetMaterial("Alucard Fragment") == 6
-                else
-                    Hop()
                 end
             end)
         end

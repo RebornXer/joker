@@ -8349,7 +8349,6 @@ end)
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false 
-                                                   
                                                     MagnetDought = true
                                                     PosMonDoughtOpenDoor = v.HumanoidRootPart.CFrame
                                                     topos(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
@@ -8360,14 +8359,12 @@ end)
                                         end
                                     end
                                 else
+                                  MagnetDought = false
                                     topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
-                            else
-                               if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
+                                      if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
        					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
-                              
-                            
-       					end
-                        end
+                       end
+ end
                     end
                 end)
             end

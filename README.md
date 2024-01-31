@@ -16622,33 +16622,7 @@ end
 end)
 
  Main:AddSeperatorLeft("Katakuri")
-        	 
-local TotalMonsterDeathCount = 0
-_G.hoas = true
-spawn(function()
-    while wait() do
-        if _G.hoas then
-            local enemies = game:GetService("Workspace").Enemies:GetChildren()
-
-            for i, v in pairs(enemies) do
-                -- Your existing enemy handling code here...
-
-                -- Increment the count when the enemy dies
-                if not v.Parent or v.Humanoid.Health <= 0 then
-                    TotalMonsterDeathCount = TotalMonsterDeathCount + 1
-                    print("Monster died! Total count: " .. TotalMonsterDeathCount)
-
-                    -- Check if the count has reached 500
-                    if TotalMonsterDeathCount >= 500 then
-                        -- Reset the count to 0
-                        TotalMonsterDeathCount = 0
-                    end
-                end
-            end
-        end
-    end
-end)
-
+        	
     
     Main:AddToggleLeft("Auto Katakuri",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
@@ -16717,8 +16691,6 @@ spawn(function()
 
                 -- เพิ่มเงื่อนไขเพื่อหยุดทำงานเมื่อไม่พบมอน
                 if not foundMonster then
-                    MagnetDought = false
-                                topos(CFrame.new(-2079.6826171875, 227.9525909423828, -12321.923828125))
                     break
                 end
             end)

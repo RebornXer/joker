@@ -8868,7 +8868,7 @@ Main:AddToggleLeft("Auto Cursed Dual Katana", _G.Auto_Cursed_Dual_Katana,functio
                 else
                     if game.Players.LocalPlayer.Character:FindFirstChild("Tushita") or game.Players.LocalPlayer.Backpack:FindFirstChild("Tushita") or game.Players.LocalPlayer.Character:FindFirstChild("Yama") or game.Players.LocalPlayer.Backpack:FindFirstChild("Yama") then
                         if game.Players.LocalPlayer.Character:FindFirstChild("Tushita") or game.Players.LocalPlayer.Backpack:FindFirstChild("Tushita") then
-                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Tushita") or GetMaterial("Alucard Fragment") >= 3 then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild("Tushita") then
                              
                                                 EquipWeapon("Tushita")
                             else

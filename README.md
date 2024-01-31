@@ -12676,8 +12676,6 @@ topos(game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper").Humanoi
                                
                             end
                         end
-                    else
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
                   
                 end
             end
@@ -16623,34 +16621,7 @@ end)
 
  Main:AddSeperatorLeft("Katakuri")
         	 
-local Douhtmon = Main:AddLabelLeft("")
-    
-_G.Addd = true
-
-local TotalMonsterDeathCount = 0
-
-spawn(function()
-    while wait() do
-        if _G.Addd then
-            local enemies = game:GetService("Workspace").Enemies:GetChildren()
-            for i, v in pairs(enemies) do
-               if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker" then
-                -- Increment the count when the enemy dies
-                if not v.Parent or v.Humanoid.Health <= 0 then
-                    TotalMonsterDeathCount = TotalMonsterDeathCount + 1
-                    Douhtmon:Set("KillMon  : " .. TotalMonsterDeathCount)
-
-                    -- Check if the count has reached 500
-                    if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
-                        TotalMonsterDeathCount = 0
-                    Douhtmon:Set("KillMon : Cake Prince Spawn")
-                   end
- end
-                end
-            end
-        end
-    end
-end)
+local Douhtmon = Main:AddLabelLeft("รอทำเสร็จ")
 
 
 

@@ -4333,6 +4333,7 @@ v.HumanoidRootPart.CFrame = PosMon
                         if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Water Key") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Water Key") then
                             topos(CFrame.new(-2604.6958, 239.432526, -10315.1982, 0.0425701365, 0, -0.999093413, 0, 1, 0, 0.999093413, 0, 0.0425701365))
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+end
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 400 then
                         else 
                             Ms = "Tide Keeper"
@@ -4361,7 +4362,7 @@ v.HumanoidRootPart.CFrame = PosMon
                         end
                     else 
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-                    end
+                  
                 end
             end
         end)
@@ -9249,17 +9250,16 @@ AutoHaki()
                             if v.Name == "Cake Queen" then
                                 if v.Humanoid.Health > 0 then
                                     repeat wait()
-                                       AutoHaki()
-                                                EquipWeapon(_G.SelectWeapon)
-toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
-                                            game:GetService'VirtualUser':CaptureController()
-                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                       
-                                        v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                        v.Humanoid.JumpPower = 0
-                                        v.Humanoid.WalkSpeed = 0
+                                      
+                           AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid:ChangeState(11)
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                       
                                     until _G.Auto_Cursed_Dual_Katana == false or Auto_Quest_Tushita_3 == false or game:GetService("Workspace").Map:FindFirstChild("HeavenlyDimension")
                                 end
@@ -9276,15 +9276,14 @@ toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
                                     if v.Humanoid.Health > 0 then
                                         repeat wait()
                                           AutoHaki()
-                                                EquipWeapon(_G.SelectWeapon)
-                                                game:GetService'VirtualUser':CaptureController()
-                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                           
-                                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-                                            v.Humanoid.JumpPower = 0
-                                            v.Humanoid.WalkSpeed = 0
-                                            v.HumanoidRootPart.CanCollide = false
-                                            v.Humanoid:ChangeState(11)
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                     
                                         until v.Humanoid.Health <= 0 or not v.Parent or Auto_Quest_Tushita_3 == false
                                     end
                                 end

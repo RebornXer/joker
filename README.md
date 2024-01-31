@@ -16638,11 +16638,12 @@ spawn(function()
                 -- Increment the count when the enemy dies
                 if not v.Parent or v.Humanoid.Health <= 0 then
                     TotalMonsterDeathCount = TotalMonsterDeathCount + 1
-                    Douhtmon:Set("Monster  : " .. TotalMonsterDeathCount)
+                    Douhtmon:Set("KillMon  : " .. TotalMonsterDeathCount)
 
                     -- Check if the count has reached 500
                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
                         TotalMonsterDeathCount = 0
+                    Douhtmon:Set("KillMon : Cake Prince Spawn")
                    end
  end
                 end
@@ -16651,11 +16652,27 @@ spawn(function()
     end
 end)
 
+
+
     Main:AddToggleLeft("Auto Katakuri",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
         StopTween(_G.AutoDoughtBoss)
     end)
-    
+    CheckMonKatakuri = true
+spawn(function()
+  while wait() do 
+    pcall(function() 
+       if CheckMonKatakuri then
+          if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
+                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
+end
+       if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 1 then
+                            if not game:GetService("Workspace").Enemies:FindFirstChild("Cookie Crafter") and not game:GetService("Workspace").Enemies:FindFirstChild("Cake Guard") and not game:GetService("Workspace").Enemies:FindFirstChild("Baking Staff") and not game:GetService("Workspace").Enemies:FindFirstChild("Head Baker") then
+                                 topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
+end
+end)
+end
+end)
 spawn(function()
     while wait() do
         if _G.AutoDoughtBoss then
@@ -16688,6 +16705,7 @@ spawn(function()
                                         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                             repeat
                                                 task.wait()
+                                                
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 v.HumanoidRootPart.CanCollide = false
@@ -16699,7 +16717,8 @@ spawn(function()
                                                 game:GetService("VirtualUser"):CaptureController()
                                                 game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                             until not _G.AutoDoughtBoss or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]")
-                                        end
+                                        
+end
                                     end
                                 end
                             else

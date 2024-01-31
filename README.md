@@ -12079,7 +12079,7 @@ spawn(function()
             if typeof(y) == "table" then
                 pcall(function()
                     CameraShaker:Stop()
-                    y.activeController.timeToNextAttack = 1
+                    y.activeController.timeToNextAttack = 0.1
                     y.activeController.timeToNextAttack = 0
                     y.activeController.hitboxMagnitude = 50
                     y.activeController.active = false
@@ -16623,6 +16623,31 @@ end)
 
  Main:AddSeperatorLeft("Katakuri")
         	 
+local TotalMonsterDeathCount = 0
+_G.hoas = true
+spawn(function()
+    while wait() do
+        if _G.hoas then
+            local enemies = game:GetService("Workspace").Enemies:GetChildren()
+
+            for i, v in pairs(enemies) do
+                -- Your existing enemy handling code here...
+
+                -- Increment the count when the enemy dies
+                if not v.Parent or v.Humanoid.Health <= 0 then
+                    TotalMonsterDeathCount = TotalMonsterDeathCount + 1
+                    print("Monster died! Total count: " .. TotalMonsterDeathCount)
+
+                    -- Check if the count has reached 500
+                    if TotalMonsterDeathCount >= 500 then
+                        -- Reset the count to 0
+                        TotalMonsterDeathCount = 0
+                    end
+                end
+            end
+        end
+    end
+end)
 
     
     Main:AddToggleLeft("Auto Katakuri",_G.AutoDoughtBoss,function(value)
@@ -16634,12 +16659,15 @@ spawn(function()
     while wait() do
         if _G.AutoDoughtBoss then
             pcall(function()
+                local foundMonster = false
+
                 if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v.Name == "Cake Prince" then
                             if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 repeat
-                                    task.wait()
+                                    wait()
+                                    foundMonster = true
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     v.HumanoidRootPart.CanCollide = false
@@ -16661,7 +16689,8 @@ spawn(function()
                                     if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker" then
                                         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                             repeat
-                                                task.wait()
+                                                wait()
+                                                foundMonster = true
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 v.HumanoidRootPart.CanCollide = false
@@ -16677,8 +16706,7 @@ spawn(function()
                                     end
                                 end
                             else
-                                MagnetDought = false
-                                topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
+                                
                                 if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
                                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                                 end
@@ -16686,10 +16714,18 @@ spawn(function()
                         end
                     end
                 end
+
+                -- เพิ่มเงื่อนไขเพื่อหยุดทำงานเมื่อไม่พบมอน
+                if not foundMonster then
+                    MagnetDought = false
+                                topos(CFrame.new(-2079.6826171875, 227.9525909423828, -12321.923828125))
+                    break
+                end
             end)
         end
     end
 end)
+
 
 
     

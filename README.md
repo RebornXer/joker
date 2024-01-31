@@ -1256,11 +1256,11 @@ local Space = Instance.new("TextLabel")
 			True.BackgroundTransparency = 1.000
 			True.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			True.Position = UDim2.new(0, 0, 0, 0)
-			True.Size = UDim2.new(0, 16, 0, 16)
+			True.Size = UDim2.new(0, 18, 0, 16)
 			True.Font = Enum.Font.SourceSans
 			True.Text = ""
 			True.TextColor3 = Color3.fromRGB(0, 0, 0)
-			True.TextSize = 18.000
+			True.TextSize = 16.000
 
 			UICorner_4.CornerRadius = UDim.new(0, 0)
 			UICorner_4.Parent = Circle
@@ -1269,7 +1269,7 @@ local Space = Instance.new("TextLabel")
 				if toggled == false then
 					toggled = true
 					True.Text = "✔"
-					Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
+					Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
 					TweenService:Create(
 						Circle,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1278,7 +1278,7 @@ local Space = Instance.new("TextLabel")
 				else
 					toggled = false
 					True.Text = ""
-					Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
+					Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
 					TweenService:Create(
 						Circle,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1292,7 +1292,7 @@ local Space = Instance.new("TextLabel")
 			if config == true then
 				toggled = true
 				True.Text = "✔"
-				Circle:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
+				Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
 				TweenService:Create(
 					Circle,
 					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1374,11 +1374,11 @@ Truea.Name = "Truea"
 			Truea.BackgroundTransparency = 1.000
 			Truea.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Truea.Position = UDim2.new(0, 0, 0, 0)
-			Truea.Size = UDim2.new(0, 16, 0, 16)
+			Truea.Size = UDim2.new(0, 18, 0, 16)
 			Truea.Font = Enum.Font.SourceSans
 			Truea.Text = ""
 			Truea.TextColor3 = Color3.fromRGB(0, 0, 0)
-			Truea.TextSize = 18.000
+			Truea.TextSize = 16.000
 
 			UICorner_44.CornerRadius = UDim.new(0, 0)
 			UICorner_44.Parent = Circlee
@@ -1387,7 +1387,7 @@ Truea.Name = "Truea"
 				if toggledd == false then
 					toggledd = true
 					Truea.Text = "✔"
-					Circlee:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
+					Circlee:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
 					TweenService:Create(
 						Circlee,
 						TweenInfo.new(0,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -1409,7 +1409,7 @@ Truea.Name = "Truea"
 			if config == true then
 				toggledd = true
 				Truea.Text = "✔"
-				Circlee:TweenPosition(UDim2.new(0,0,0,0),"Out","Sine",0,true)
+				Circlee:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0,true)
 				TweenService:Create(
 					Circlee,
 					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -3765,7 +3765,7 @@ spawn(function()
                     CameraShaker:Stop()
                     y.activeController.timeToNextAttack = 1
                     y.activeController.timeToNextAttack = 0
-                    y.activeController.hitboxMagnitude = 100
+                    y.activeController.hitboxMagnitude = 50
                     y.activeController.active = false
                     y.activeController.timeToNextBlock = 0
                     y.activeController.focusStart = 0
@@ -8317,8 +8317,7 @@ end)
         while wait() do
             if _G.AutoDoughtBoss then
                 pcall(function()
-                     
-                  if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == "Cake Prince" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -8383,9 +8382,10 @@ end)
                                 else
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
                                         topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(0,-45,-40))
-                                    
+                                    else
                                  
-                            
+                            if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
+       					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                                end
                                end
                             end
@@ -8948,7 +8948,7 @@ Main:AddToggleLeft("Auto Cursed Dual Katana", _G.Auto_Cursed_Dual_Katana,functio
                     Auto_Quest_Tushita_1 = true
                     Auto_Quest_Tushita_2 = false
                     Auto_Quest_Tushita_3 = false
-                    Auto_Quest_Tushita_1_1 = true
+
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","Progress","Good")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Good")
                 elseif GetMaterial("Alucard Fragment") == 4 then
@@ -9197,43 +9197,19 @@ v.HumanoidRootPart.CanCollide = false
     end
     end)
     
-    spawn(function()
-    while wait() do
-        if Auto_Quest_Tushita_1_1 then
-            toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125))
-            if (Vector3.new(-9546.990234375, 21.139892578125, 4686.1142578125) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1 then
-            Auto_Quest_Tushita_1_2 = true
-	Auto_Quest_Tushita_1_1 = false
+spawn(function()
+ while wait() do
+  pcall(function()
+   if Auto_Quest_Tushita_1 then
+     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until if (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+wait(1)
+repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until if (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+wait(1)
+repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until if (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
 end
- end
-    end
-    end)
-    spawn(function()
-    while wait() do
-        if Auto_Quest_Tushita_1_2 then
-           toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625))
-            if (Vector3.new(-6120.0576171875, 16.455780029296875, -2250.697265625) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1 then
-           Auto_Quest_Tushita_1_2 = false
-Auto_Quest_Tushita_1_3 = true
-
- end
- end
-    end
-    end)
- spawn(function()
-    while wait() do
-        if Auto_Quest_Tushita_1_3 then
-           toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875))    
-            if (Vector3.new(-9533.2392578125, 7.254445552825928, -8372.69921875) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1 then
-            Auto_Quest_Tushita_1_1 = false
- Auto_Quest_Tushita_1_2 = false
-Auto_Quest_Tushita_1_3 = false
+end)
 end
- end
-    end
-    end)
-
-
+end)
 
     spawn(function()
     while wait() do
@@ -11740,6 +11716,23 @@ end
     Misc:AddLabelRight("Ui : ball naja#3764")
     Misc:AddLabelRight("Dev : ball naja#3764")
         Setting:AddSeperatorLeft("Beta function")
+Setting:AddToggleLeft("Test",nil,function(a)
+_G.TestUI = a
+end)
+
+spawn(function()
+ while wait() do
+  pcall(function()
+   if _G.TestUI then
+     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until if (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+wait(1)
+repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until if (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+wait(1)
+repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until if (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+end
+end)
+end
+end)
 
 
 

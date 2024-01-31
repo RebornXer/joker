@@ -9201,11 +9201,12 @@ spawn(function()
  while wait() do
   pcall(function()
    if Auto_Quest_Tushita_1 then
-     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until if (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
 wait(1)
-repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until if (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
 wait(1)
-repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until if (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
+
 end
 end)
 end
@@ -11724,11 +11725,12 @@ spawn(function()
  while wait() do
   pcall(function()
    if _G.TestUI then
-     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until if (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+     repeat wait() toTarget(CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125)) until (CFrame.new(-9546.990234375, 21.139892578125, 4686.1142578125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
 wait(1)
-repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until if (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+repeat wait() toTarget(CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625)) until (CFrame.new(-6120.0576171875, 16.455780029296875, -2250.697265625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
 wait(1)
-repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until if (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+repeat wait() toTarget(CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875)) until (CFrame.new(-9533.2392578125, 7.254445552825928, -8372.69921875).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 
+
 end
 end)
 end

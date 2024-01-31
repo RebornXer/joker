@@ -12079,7 +12079,7 @@ spawn(function()
             if typeof(y) == "table" then
                 pcall(function()
                     CameraShaker:Stop()
-                    y.activeController.timeToNextAttack = 0.1
+                    y.activeController.timeToNextAttack = 1
                     y.activeController.timeToNextAttack = 0
                     y.activeController.hitboxMagnitude = 50
                     y.activeController.active = false
@@ -16622,7 +16622,8 @@ end
 end)
 
  Main:AddSeperatorLeft("Katakuri")
-        	
+        	 
+
     
     Main:AddToggleLeft("Auto Katakuri",_G.AutoDoughtBoss,function(value)
         _G.AutoDoughtBoss = value
@@ -16633,15 +16634,12 @@ spawn(function()
     while wait() do
         if _G.AutoDoughtBoss then
             pcall(function()
-                local foundMonster = false
-
                 if game:GetService("Workspace").Enemies:FindFirstChild("Cake Prince") then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if v.Name == "Cake Prince" then
                             if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 repeat
-                                    wait()
-                                    foundMonster = true
+                                    task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     v.HumanoidRootPart.CanCollide = false
@@ -16663,8 +16661,7 @@ spawn(function()
                                     if v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker" then
                                         if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                             repeat
-                                                wait()
-                                                foundMonster = true
+                                                task.wait()
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 v.HumanoidRootPart.CanCollide = false
@@ -16680,7 +16677,8 @@ spawn(function()
                                     end
                                 end
                             else
-                                
+                                MagnetDought = false
+                                topos(-2079.6826171875, 227.9525909423828, -12321.923828125)
                                 if game:GetService("Workspace").Map.CakeLoaf.BigMirror.Other.Transparency == 0 then
                                     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2151.82153, 149.315704, -12404.9053)
                                 end
@@ -16688,16 +16686,10 @@ spawn(function()
                         end
                     end
                 end
-
-                -- เพิ่มเงื่อนไขเพื่อหยุดทำงานเมื่อไม่พบมอน
-                if not foundMonster then
-                    break
-                end
             end)
         end
     end
 end)
-
 
 
     

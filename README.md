@@ -3328,7 +3328,7 @@ end
     end
     
     -- ถ้าระยะทางน้อยกว่าหรือเท่ากับ 250 หยุดฟังก์ชันและเลื่อนตัวละครไปยังตำแหน่งที่กำหนด
-    if Distance <= 250 then
+    if Distance <= 1 then
         HumanoidRootPart.CFrame = Pos
         return
     end
@@ -3341,7 +3341,7 @@ end
     
     -- ไม่ต้องสร้าง tween หากมีการเลื่อนอยู่แล้ว
     if not HumanoidRootPart:FindFirstChild("MoveTween") then
-        local TweenInfo = TweenInfo.new(Distance / 250, Enum.EasingStyle.Linear)
+        local TweenInfo = TweenInfo.new(Distance / 168, Enum.EasingStyle.Linear)
         local MoveTween = game:GetService("TweenService"):Create(HumanoidRootPart, TweenInfo, {CFrame = Pos})
         MoveTween.Name = "MoveTween"
         MoveTween:Play()

@@ -3341,7 +3341,7 @@ end
     
     -- ไม่ต้องสร้าง tween หากมีการเลื่อนอยู่แล้ว
     if not HumanoidRootPart:FindFirstChild("MoveTween") then
-        local TweenInfo = TweenInfo.new(Distance / 168, Enum.EasingStyle.Linear)
+        local TweenInfo = TweenInfo.new(Distance /168, Enum.EasingStyle.Linear)
         local MoveTween = game:GetService("TweenService"):Create(HumanoidRootPart, TweenInfo, {CFrame = Pos})
         MoveTween.Name = "MoveTween"
         MoveTween:Play()

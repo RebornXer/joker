@@ -3313,20 +3313,44 @@ end
         end
     end
     
-    function topos(Pos)
-        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-        tween:Play()
-        if Distance <= 250 then
-            tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-        end
-        if _G.StopTween == true then
-            tween:Cancel()
-            _G.Clip = false
-        end
+ function topos(Pos)
+    local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local Distance = (Pos.Position - HumanoidRootPart.Position).Magnitude
+    
+    -- เช็คว่าถ้า Character นั่งอยู่ให้ยกเลิกการนั่ง
+    if game.Players.LocalPlayer.Character.Humanoid.Sit then
+        game.Players.LocalPlayer.Character.Humanoid.Sit = false
     end
+    
+    -- เคลียร์ tween ที่กำลังเล่น
+    for _, tween in ipairs(game:GetService("TweenService"):GetTweenPlayers(HumanoidRootPart)) do
+        tween:Cancel()
+    end
+    
+    -- ถ้าระยะทางน้อยกว่าหรือเท่ากับ 250 หยุดฟังก์ชันและเลื่อนตัวละครไปยังตำแหน่งที่กำหนด
+    if Distance <= 250 then
+        HumanoidRootPart.CFrame = Pos
+        return
+    end
+    
+    -- หากต้องการหยุด tween แล้วกำหนด Clip เป็น false
+    if _G.StopTween == true then
+        _G.Clip = false
+        return
+    end
+    
+    -- ไม่ต้องสร้าง tween หากมีการเลื่อนอยู่แล้ว
+    if not HumanoidRootPart:FindFirstChild("MoveTween") then
+        local TweenInfo = TweenInfo.new(Distance / 250, Enum.EasingStyle.Linear)
+        local MoveTween = game:GetService("TweenService"):Create(HumanoidRootPart, TweenInfo, {CFrame = Pos})
+        MoveTween.Name = "MoveTween"
+        MoveTween:Play()
+        MoveTween.Completed:Connect(function()
+            MoveTween:Destroy() -- ทำลาย tween เมื่อเสร็จสิ้น
+        end)
+    end
+end
+
 
  function ew(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
@@ -3393,21 +3417,26 @@ function Goto(Pos)
         _G.Clip = false
     end
     
-    spawn(function()
-        pcall(function()
-            while wait() do
-                if _G.AutoFarmFruit or _G.Auto_Cursed_Dual_Katana or _G.AutoDoughKing or _G.KitsuneIsland or _G.Auto_Sea_Event or _G.Auto_Open_Dough_Dungeon or _G.AutoAdvanceDungeon or _G.egg  or _G.AutoLawBoss or _G.Auto_Open_Dough_Dungeon or _G.AutoMysticIsland21 or _G.AutoMysticIsland or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
-                        local Noclip = Instance.new("BodyVelocity")
-                        Noclip.Name = "BodyClip"
-                        Noclip.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-                        Noclip.MaxForce = Vector3.new(100000,100000,100000)
-                        Noclip.Velocity = Vector3.new(0,0,0)
-                    
-
-                end
+   spawn(function()
+    while wait() do
+        if _G.AutoFarmFruit or _G.Auto_Cursed_Dual_Katana or _G.AutoDoughKing or _G.KitsuneIsland or _G.Auto_Sea_Event or _G.Auto_Open_Dough_Dungeon or _G.AutoAdvanceDungeon or _G.egg  or _G.AutoLawBoss or _G.Auto_Open_Dough_Dungeon or _G.AutoMysticIsland21 or _G.AutoMysticIsland or _G.AutoMysticIsland2 or _G.Heats or _G.fts or _G.AutoDoughtBoss or _G.human or _G.ghoul or _G.Gear or _G.bot or _G.dv2 or _G.Candy or _G.Cocoa or _G.Ectoplasm or _G.AutoRedioactive or _G.Chest or _G.AutoSaw or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+            local Noclip = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip")
+            if not Noclip then
+                Noclip = Instance.new("BodyVelocity")
+                Noclip.Name = "BodyClip"
+                Noclip.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                Noclip.MaxForce = Vector3.new(100000, 100000, 100000)
+                Noclip.Velocity = Vector3.new(0, 0, 0)
             end
-        end)
-    end)
+        else
+            local Noclip = game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip")
+            if Noclip then
+                Noclip:Destroy()
+            end
+        end
+    end
+end)
+
     
 function GetWeaponInventory(Weaponname)
 for i, v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
@@ -3450,15 +3479,16 @@ end
         end)
     end)
     
-    spawn(function()
-        while wait() do
-            if _G.AutoDoughtBoss or _G.Auto_Cursed_Dual_Katana or _G.Auto_Sea_Event or _G.AutoDoughKing or _G.Auto_Open_Dough_Dungeon or _G.AutoFarmFruit or _G.dv2 or _G.Heats or _G.Auto_Open_Dough_Dungeon or _G.AutoLawBoss or _G.human or _G.AutoDoughtBoss or _G.ghoul or _G.Candy or _G.Gear or _G.dv2 or _G.Cocoa or _G.Chest1 or _G.Ectoplasm or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken",true)
-                end)
-            end    
-        end
-    end)
+ spawn(function()
+    while wait() do
+        if _G.AutoDoughtBoss or _G.Auto_Cursed_Dual_Katana or _G.Auto_Sea_Event or _G.AutoDoughKing or _G.Auto_Open_Dough_Dungeon or _G.AutoFarmFruit or _G.dv2 or _G.Heats or _G.Auto_Open_Dough_Dungeon or _G.AutoLawBoss or _G.human or _G.AutoDoughtBoss or _G.ghoul or _G.Candy or _G.Gear or _G.dv2 or _G.Cocoa or _G.Chest1 or _G.Ectoplasm or _G.AutoRedioactive or _G.AutoSaw or _G.Chest or _G.Sea1 or _G.Sea or _G.Magma or _G.Fish or _G.My or _G.God or _G.combo or _G.Auto_Bone2 or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone == true then
+            pcall(function()
+                game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken", true)
+            end)
+        end    
+    end
+end)
+
     
     function StopTween(target)
         if not target then
@@ -3755,10 +3785,11 @@ _G.FastAttack = true
     end)
     
   local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
-CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-y = debug.getupvalues(CombatFrameworkR)[2]
+local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local y = debug.getupvalues(CombatFrameworkR)[2]
+
 spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
+    game:GetService("RunService").Stepped:Connect(function()
         if _G.FastAttack then
             if typeof(y) == "table" then
                 pcall(function()
@@ -3778,6 +3809,7 @@ spawn(function()
         end
     end)
 end)
+
 
     _G.BringMon = true
     Main:AddToggleRight("BringMon",_G.BringMon,function(value)
@@ -19827,42 +19859,55 @@ end)
     
     Misc:AddButtonRight("FPS Boost",function()
          local decalsyeeted = true
-    local g = game
-    local w = g.Workspace
-    local l = g.Lighting
-    local t = w.Terrain
-    t.WaterWaveSize = 0
-    t.WaterWaveSpeed = 0
-    t.WaterReflectance = 0
-    t.WaterTransparency = 0
-    l.GlobalShadows = false
-    l.FogEnd = 9e9
-    l.Brightness = 0
-    settings().Rendering.QualityLevel = "Level01"
-    for i, v in pairs(g:GetDescendants()) do
-        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then 
-            v.Material = "Plastic"
-            v.Reflectance = 0
-        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
-            v.Transparency = 1
-        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
-            v.Lifetime = NumberRange.new(0)
-        elseif v:IsA("Explosion") then
-            v.BlastPressure = 1
-            v.BlastRadius = 1
-        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
-            v.Enabled = false
-        elseif v:IsA("MeshPart") then
-            v.Material = "Plastic"
-            v.Reflectance = 0
-            v.TextureID = 10385902758728957
-        end
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+
+-- ปรับค่า Water ใน Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+
+-- ปิดการเปิดใช้งาน Global Shadows
+l.GlobalShadows = false
+
+-- ปรับค่าแสงและการเงา
+l.FogEnd = 9e9
+l.Brightness = 0
+
+-- ปรับค่าคุณภาพการเล่น
+settings().Rendering.QualityLevel = "Level01"
+
+-- ปรับแต่งส่วนประกอบแต่ละชนิด
+for i, v in pairs(g:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then 
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif (v:IsA("Decal") or v:IsA("Texture")) and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1 
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
     end
-    for i, e in pairs(l:GetChildren()) do
-        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
-            e.Enabled = false
-        end
 end
+
+-- ปิดเอฟเฟคต่าง ๆ ใน Lighting
+for i, e in pairs(l:GetChildren()) do
+    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+        e.Enabled = false
+    end
+end
+
     end)
     
     Misc:AddButtonRight("Unlock FPS",function()

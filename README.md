@@ -3314,44 +3314,18 @@ end
     end
     
  function topos(Pos)
-    local HumanoidRootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
-    local Distance = (Pos.Position - HumanoidRootPart.Position).Magnitude
-    
-    -- เช็คว่าถ้า Character นั่งอยู่ให้ยกเลิกการนั่ง
-    if game.Players.LocalPlayer.Character.Humanoid.Sit then
-        game.Players.LocalPlayer.Character.Humanoid.Sit = false
+   Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/168, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 1 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
     end
-    
-    -- เคลียร์ tween ที่กำลังเล่น
-    for _, tween in ipairs(game:GetService("TweenService"):GetTweenPlayers(HumanoidRootPart)) do
-        tween:Cancel()
-    end
-    
-    -- ถ้าระยะทางน้อยกว่าหรือเท่ากับ 250 หยุดฟังก์ชันและเลื่อนตัวละครไปยังตำแหน่งที่กำหนด
-    if Distance <= 1 then
-        HumanoidRootPart.CFrame = Pos
-        return
-    end
-    
-    -- หากต้องการหยุด tween แล้วกำหนด Clip เป็น false
-    if _G.StopTween == true then
-        _G.Clip = false
-        return
-    end
-    
-    -- ไม่ต้องสร้าง tween หากมีการเลื่อนอยู่แล้ว
-    if not HumanoidRootPart:FindFirstChild("MoveTween") then
-        local TweenInfo = TweenInfo.new(Distance /168, Enum.EasingStyle.Linear)
-        local MoveTween = game:GetService("TweenService"):Create(HumanoidRootPart, TweenInfo, {CFrame = Pos})
-        MoveTween.Name = "MoveTween"
-        MoveTween:Play()
-        MoveTween.Completed:Connect(function()
-            MoveTween:Destroy() -- ทำลาย tween เมื่อเสร็จสิ้น
-        end)
-    end
-end
-
-
  function ew(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/350, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
